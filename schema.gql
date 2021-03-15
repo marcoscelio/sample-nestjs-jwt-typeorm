@@ -1,0 +1,44 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Address {
+  id: String!
+  name: String!
+  address: String!
+  zipcode: String!
+  city: String!
+  state: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+  user: User!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type User {
+  id: String!
+  name: String!
+  password: String!
+  email: String!
+  phone: String!
+  cpf: String!
+  addresses: [Address!]
+  status: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+}
+
+type AuthToken {
+  token: String!
+}
+
+type Query {
+  user(email: String!): User!
+  signin(password: String!, email: String!): AuthToken!
+}
